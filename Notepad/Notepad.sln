@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notepad", "Notepad\Notepad.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicMVVM", "BasicMVVM\BasicMVVM.csproj", "{710370D1-D225-4F1E-9009-A506B5F9D556}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloMVVM", "HelloMVVM\HelloMVVM.csproj", "{BF36BFE0-F692-47FE-AA0B-CFE5331FE5E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{710370D1-D225-4F1E-9009-A506B5F9D556}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{710370D1-D225-4F1E-9009-A506B5F9D556}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{710370D1-D225-4F1E-9009-A506B5F9D556}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF36BFE0-F692-47FE-AA0B-CFE5331FE5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF36BFE0-F692-47FE-AA0B-CFE5331FE5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF36BFE0-F692-47FE-AA0B-CFE5331FE5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF36BFE0-F692-47FE-AA0B-CFE5331FE5E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
