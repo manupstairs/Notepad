@@ -1,0 +1,25 @@
+﻿<Window x:Class="NotepadListView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotepadListView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="listViewTitles" Grid.Row="0" Grid.Column="0" ItemsSource="{Binding Titles}"></ListView>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding SelectedItem,ElementName=listViewTitles}"></TextBlock>
+
+        <ListView x:Name="listViewPages" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Pages}"></ListView>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedItem,ElementName=listViewPages}"></TextBlock>
+    </Grid>
+</Window>
