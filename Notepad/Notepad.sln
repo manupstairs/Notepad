@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloMVVM", "HelloMVVM\Hell
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotepadListView", "NotepadListView\NotepadListView.csproj", "{F7012638-1953-4B8F-AFD5-FBDF840A205B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotepadDataContext", "NotepadDataContext\NotepadDataContext.csproj", "{AA6DFEBB-AC3E-4445-89A5-9466EF6A659E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F7012638-1953-4B8F-AFD5-FBDF840A205B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7012638-1953-4B8F-AFD5-FBDF840A205B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7012638-1953-4B8F-AFD5-FBDF840A205B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA6DFEBB-AC3E-4445-89A5-9466EF6A659E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6DFEBB-AC3E-4445-89A5-9466EF6A659E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6DFEBB-AC3E-4445-89A5-9466EF6A659E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA6DFEBB-AC3E-4445-89A5-9466EF6A659E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

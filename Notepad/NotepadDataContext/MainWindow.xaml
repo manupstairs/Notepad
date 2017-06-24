@@ -1,0 +1,42 @@
+﻿<Window x:Class="NotepadDataContext.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotepadDataContext"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="{Binding}"></TextBlock>
+        <TextBlock x:Name="textBlock" Grid.Row="1" Text="{Binding}" DataContext="{Binding ViewModel}"></TextBlock>
+
+        <Grid Grid.Row="2" DataContext="{Binding ViewModel}" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{Binding}"></TextBlock>
+            <TextBlock Grid.Row="1" Text="{Binding Name}"></TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="3" DataContext="{Binding ElementName=textBlock}" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="{Binding}"></TextBlock>
+            <TextBlock Grid.Row="1" Text="{Binding Name}"></TextBlock>
+            <TextBlock Grid.Row="2" Text="{Binding DataContext.Name}"></TextBlock>
+        </Grid>
+    </Grid>
+</Window>
