@@ -29,6 +29,7 @@ namespace BasicMVVM
             {
                 name = value;
                 this.OnPropertyChanged();
+                this.OnPropertyChanged("Introduction");
             }
         }
 
@@ -41,14 +42,16 @@ namespace BasicMVVM
             {
                 birthday = value;
                 this.OnPropertyChanged();
+                this.OnPropertyChanged("Introduction");
             }
         }
 
-        public int Age
+        public string Introduction
         {
             get
             {
-                return DateTime.Now.Year - Birthday.Year;
+                int years = DateTime.Now.Year - Birthday.Year;
+                return string.Format("{0} is {1} years old.", this.Name, years);
             }
         }
 

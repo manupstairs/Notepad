@@ -15,15 +15,19 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0">Name</TextBlock>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"></TextBox>
+        <TextBlock Grid.Row="0" Grid.Column="0">GUID</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Id,Mode=OneTime}"></TextBlock>
+        
+        <TextBlock Grid.Row="1" Grid.Column="0">Name</TextBlock>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Name,Mode=TwoWay}"></TextBox>
 
-        <TextBlock Grid.Row="1" Grid.Column="0">Birthday</TextBlock>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Birthday}"></TextBox>
+        <TextBlock Grid.Row="2" Grid.Column="0">Birthday</TextBlock>
+        <DatePicker Grid.Row="2" Grid.Column="1" SelectedDate="{Binding Birthday,Mode=TwoWay}"></DatePicker>
 
-        <TextBlock Grid.Row="2" Grid.Column="0">Age</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Age}"></TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="0">Introduction</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Introduction}"></TextBlock>
     </Grid>
 </Window>
