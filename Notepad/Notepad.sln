@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotepadListView", "NotepadL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotepadDataContext", "NotepadDataContext\NotepadDataContext.csproj", "{AA6DFEBB-AC3E-4445-89A5-9466EF6A659E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DpAndINPC", "DpAndINPC\DpAndINPC.csproj", "{683EAD85-4EE8-4DEE-8341-EBEE1656C709}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AA6DFEBB-AC3E-4445-89A5-9466EF6A659E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA6DFEBB-AC3E-4445-89A5-9466EF6A659E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA6DFEBB-AC3E-4445-89A5-9466EF6A659E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{683EAD85-4EE8-4DEE-8341-EBEE1656C709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{683EAD85-4EE8-4DEE-8341-EBEE1656C709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{683EAD85-4EE8-4DEE-8341-EBEE1656C709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{683EAD85-4EE8-4DEE-8341-EBEE1656C709}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

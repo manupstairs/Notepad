@@ -1,0 +1,34 @@
+﻿<Window x:Class="DpAndINPC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DpAndINPC"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Vertical" DataContext="{Binding DpViewModel,Mode=OneTime}">
+            <TextBlock>Name:</TextBlock>
+            <TextBlock Text="{Binding Name}"></TextBlock>
+            <TextBox Text="{Binding Name,Mode=TwoWay}"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical" DataContext="{Binding InpcViewModel,Mode=OneTime}">
+            <TextBlock>Age:</TextBlock>
+            <TextBlock Text="{Binding Age}"></TextBlock>
+            <TextBox Text="{Binding Age,Mode=TwoWay}"></TextBox>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Orientation="Vertical" DataContext="{Binding InpcViewModel,Mode=OneTime}">
+            <TextBlock>Number List:</TextBlock>
+            <ListView ItemsSource="{Binding Numbers,Mode=OneWay}"></ListView>
+            <Button Click="Button_Click" Content="Insert a random number"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
