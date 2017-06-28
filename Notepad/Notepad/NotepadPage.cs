@@ -34,6 +34,18 @@ namespace Notepad
             }
         }
 
+        private DateTime lastModifyDate;
+
+        public DateTime LastModifyDate
+        {
+            get { return lastModifyDate; }
+            set
+            {
+                lastModifyDate = value;
+                this.OnPropertyChanged();
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)

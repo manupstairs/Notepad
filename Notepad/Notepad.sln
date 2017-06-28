@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotepadDataContext", "Notep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DpAndINPC", "DpAndINPC\DpAndINPC.csproj", "{683EAD85-4EE8-4DEE-8341-EBEE1656C709}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListBoxTemplateAndStyle", "ListBoxTemplateAndStyle\ListBoxTemplateAndStyle.csproj", "{75B21926-4886-4679-B06F-E603082DCEB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{683EAD85-4EE8-4DEE-8341-EBEE1656C709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{683EAD85-4EE8-4DEE-8341-EBEE1656C709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{683EAD85-4EE8-4DEE-8341-EBEE1656C709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75B21926-4886-4679-B06F-E603082DCEB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B21926-4886-4679-B06F-E603082DCEB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75B21926-4886-4679-B06F-E603082DCEB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B21926-4886-4679-B06F-E603082DCEB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
