@@ -8,25 +8,31 @@
         Title="GridWindow" >
     <Grid ShowGridLines="True" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock FontSize="20" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center">2005 Products Shipped</TextBlock>
-        <TextBlock FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="0">Quarter 1</TextBlock>
-        <TextBlock FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="1">Quarter 2</TextBlock>
-        <TextBlock FontSize="12" FontWeight="Bold" Grid.Row="1" Grid.Column="2">Quarter 3</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="0">50000</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1">100000</TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="2">150000</TextBlock>
-        <TextBlock FontSize="16" FontWeight="Bold" Grid.ColumnSpan="3" Grid.Row="3" HorizontalAlignment="Center">Total Units: 300000</TextBlock>
+        <Border Height="25" Background="SkyBlue" BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.ColumnSpan="2">
+            <TextBlock Foreground="Black">Dock = "Top"</TextBlock>
+        </Border>
+        <Border Height="25" Background="SkyBlue" BorderBrush="Black" BorderThickness="1"  Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBlock Foreground="Black">Dock = "Top"</TextBlock>
+        </Border>
+        <Border Height="25" Background="LemonChiffon" BorderBrush="Black" BorderThickness="1"  Grid.Row="3" Grid.ColumnSpan="2">
+            <TextBlock Foreground="Black">Dock = "Bottom"</TextBlock>
+        </Border>
+        <Border Width="200" Background="PaleGreen" BorderBrush="Black" BorderThickness="1"  Grid.Row="2" Grid.Column="0">
+            <TextBlock Foreground="Black">Dock = "Left"</TextBlock>
+        </Border>
+        <Border Background="White" BorderBrush="Black" BorderThickness="1"  Grid.Row="2" Grid.Column="1">
+            <TextBlock Foreground="Black">This content will "Fill" the remaining space</TextBlock>
+        </Border>
     </Grid>
 
 </Window>

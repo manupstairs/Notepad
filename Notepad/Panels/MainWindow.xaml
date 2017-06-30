@@ -17,5 +17,8 @@
         <Button Click="Button_Click">Canvas</Button>
         <Button Click="Button_Click">DockPanel</Button>
         <Button Click="Button_Click">Grid</Button>
+        <Button IsEnabled="False">StackPanel</Button>
+        <Button Click="Button_Click">VirtualizingStackPanel</Button>
+        <Button Click="Button_Click">WrapPanel</Button>
     </StackPanel>
 </Window>
