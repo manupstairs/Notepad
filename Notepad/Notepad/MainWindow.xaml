@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notepad"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow">
     <Window.Resources>
         <DataTemplate x:Key="NotepadPageTemplate">
             <Grid Height="100" Margin="0,4" Width="400">
@@ -18,9 +18,9 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource TitleTextBlockStyle}" Text="{Binding Title,Mode=OneTime}" MaxHeight="160" TextTrimming="CharacterEllipsis"></TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource BodyTextBlockStyle}" Text="{Binding Content,Mode=OneTime}" TextTrimming="CharacterEllipsis" Margin="0,4"></TextBlock>
-                <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource CaptionTextBlockStyle}" Text="{Binding LastModifyDate,Mode=OneTime}"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource TitleTextBlockStyle}" Text="{Binding Title,Mode=OneWay}" MaxHeight="160" TextTrimming="CharacterEllipsis"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource BodyTextBlockStyle}" Text="{Binding Content,Mode=OneWay}" TextTrimming="CharacterEllipsis" Margin="0,4"></TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource CaptionTextBlockStyle}" Text="{Binding LastModifyDate,Mode=OneWay}"></TextBlock>
                 <Image Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Source="{Binding CoverImageUri,Mode=OneTime}" Stretch="UniformToFill"
                            Margin="4,0,0,0"></Image>
 
@@ -28,6 +28,21 @@
         </DataTemplate>
 
     </Window.Resources>
-    <ListView x:Name="listView" ItemsSource="{Binding Pages}" 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="columnLeft" Width="4*"></ColumnDefinition>
+            <ColumnDefinition x:Name="columnRight" Width="6*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Column="0" x:Name="listView" ItemsSource="{Binding Pages}" 
               ItemTemplate="{StaticResource NotepadPageTemplate}"></ListView>
+
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedItem,ElementName=listView}" Margin="4">
+            <TextBox BorderThickness="0,0,0,1" Text="{Binding Title,Mode=TwoWay}" Style="{StaticResource TitleTextBoxStyle}"></TextBox>
+            <TextBlock Text="{Binding LastModifyDate,Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}"></TextBlock>
+            <TextBox BorderThickness="0" Text="{Binding Content,Mode=TwoWay}" 
+                     Style="{StaticResource BodyTextBoxStyle}"
+                     AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+        </StackPanel>
+    </Grid>
 </Window>

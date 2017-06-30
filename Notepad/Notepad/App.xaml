@@ -25,6 +25,20 @@
                 <Setter Property="FontSize" Value="12"/>
                 <Setter Property="FontWeight" Value="Normal"/>
             </Style>
+            <Style x:Key="BaseTextBoxStyle" TargetType="TextBox">
+                <Setter Property="FontFamily" Value="XamlAutoFontFamily"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+            </Style>
+            <Style x:Key="TitleTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="FontSize" Value="24"/>
+            </Style>
+            <Style x:Key="BodyTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBoxStyle}">
+                <Setter Property="FontWeight" Value="Normal"/>
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
             <local:SelectionModeToVisibility x:Key="selectionModeToVisibility"></local:SelectionModeToVisibility>
         </ResourceDictionary>
     </Application.Resources>
