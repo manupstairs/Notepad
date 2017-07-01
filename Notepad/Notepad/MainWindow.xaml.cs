@@ -20,10 +20,38 @@ namespace Notepad
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GridLength zeroGridLength = new GridLength(0);
+        private GridLength oneStarGridLength = new GridLength(1, GridUnitType.Star);
+        private GridLength fourStarGridLength = new GridLength(4, GridUnitType.Star);
+        private GridLength sixStarGridLength = new GridLength(6, GridUnitType.Star);
+
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = new MainViewModel();
+            this.SizeChanged += MainWindow_SizeChanged;
+        }
+
+        private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (e.NewSize.Width <= 800)
+            {
+                if (listView.SelectedItem == null)
+                {
+                    columnRight.Width = zeroGridLength;
+                    columnLeft.Width = oneStarGridLength;
+                }
+                else
+                {
+                    columnLeft.Width = zeroGridLength;
+                    columnRight.Width = oneStarGridLength;
+                }
+            }
+            else
+            {
+                columnLeft.Width = fourStarGridLength;
+                columnRight.Width = sixStarGridLength;
+            }
         }
     }
 }
