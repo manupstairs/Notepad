@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListBoxTemplateAndStyle", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Panels", "Panels\Panels.csproj", "{AF909386-1CB1-4F9C-8EDC-5927D48CE028}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentControlAndControlTemplate", "ContentControlAndControlTemplate\ContentControlAndControlTemplate.csproj", "{DD5CE2BE-A9EA-472D-AAC5-112FCF920101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonCommand", "ButtonCommand\ButtonCommand.csproj", "{A37020BD-6869-45FC-8DF9-E9BA0E6243D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{AF909386-1CB1-4F9C-8EDC-5927D48CE028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF909386-1CB1-4F9C-8EDC-5927D48CE028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF909386-1CB1-4F9C-8EDC-5927D48CE028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD5CE2BE-A9EA-472D-AAC5-112FCF920101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD5CE2BE-A9EA-472D-AAC5-112FCF920101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD5CE2BE-A9EA-472D-AAC5-112FCF920101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD5CE2BE-A9EA-472D-AAC5-112FCF920101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A37020BD-6869-45FC-8DF9-E9BA0E6243D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A37020BD-6869-45FC-8DF9-E9BA0E6243D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A37020BD-6869-45FC-8DF9-E9BA0E6243D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A37020BD-6869-45FC-8DF9-E9BA0E6243D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
