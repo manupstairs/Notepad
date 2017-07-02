@@ -17,7 +17,7 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button Click="Button_Click">Click - Add</Button>
-            <Button Command="{Binding AddCommand}" >Add</Button>
+            <Button Command="{Binding AddCommand}">Add</Button>
             <Button Command="{Binding DelCommand}" Content="Delete"></Button>
         </StackPanel>
         <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}"></ListView>
