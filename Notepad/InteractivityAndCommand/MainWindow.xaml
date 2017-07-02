@@ -13,7 +13,7 @@
                 <i:InvokeCommandAction Command="{Binding SelectCommand}"/>
             </i:EventTrigger>
         </i:Interaction.Triggers>
-        <Grid >
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />

@@ -20,6 +20,12 @@
             <Button Command="{Binding AddCommand}">Add</Button>
             <Button Command="{Binding DelCommand}" Content="Delete"></Button>
         </StackPanel>
-        <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}"></ListView>
+        <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Delete" Command="{Binding DelCommand}"></MenuItem>
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
     </StackPanel>
 </Window>
