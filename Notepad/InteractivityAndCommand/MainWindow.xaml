@@ -1,35 +1,51 @@
-﻿<Window x:Class="InteractivityAndCommand.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InteractivityAndCommand"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" x:Class="InteractivityAndCommand.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" >
-    <Border Width="440" Height="120" BorderBrush="Black" BorderThickness="1">
+    <Border Width="440" Height="120" BorderBrush="Black" BorderThickness="1" Background="Transparent">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseLeftButtonDown">
+                <i:InvokeCommandAction Command="{Binding SelectCommand}"/>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
         <Grid >
             <Grid.RowDefinitions>
-                <RowDefinition ></RowDefinition>
-                <RowDefinition ></RowDefinition>
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Ellipse Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Width="80" Height="80" Fill="Green" Margin="8"></Ellipse>
+            <Ellipse Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Width="80" Height="80" Fill="Green" Margin="8">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding AvatarCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Ellipse>
 
             <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource TitleTextBlockStyle}" 
-                       Text="WPF knowledge share" VerticalAlignment="Center"></TextBlock>
+                       Text="WPF knowledge share" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource BodyTextBlockStyle}"
-                       Text="You: Hi everyone, ..." VerticalAlignment="Top"></TextBlock>
+                       Text="You: Hi everyone, ..." VerticalAlignment="Top"/>
             <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource CaptionTextBlockStyle}" 
-                       Text="12:34" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                       Text="12:34" TextAlignment="Center" VerticalAlignment="Center"/>
 
             <Grid Grid.Row="1" Grid.Column="2">
-                <Image Source="Assets/blackStar.jpg"></Image>
-                <Image Source="Assets/whiteStar.jpg"></Image>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding StarCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Image Source="Assets/whiteStar.jpg"/>
             </Grid>
         </Grid>
     </Border>

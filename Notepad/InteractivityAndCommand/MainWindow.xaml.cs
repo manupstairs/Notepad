@@ -20,9 +20,18 @@ namespace InteractivityAndCommand
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainViewModel ViewModel = new MainViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
+            ViewModel.ShowMessageEvent += ViewModel_ShowMessageEvent;
+            this.DataContext = ViewModel;
+        }
+
+        private void ViewModel_ShowMessageEvent(object sender, string e)
+        {
+            MessageBox.Show(e);
         }
     }
 }
