@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonCommand", "ButtonComm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteractivityAndCommand", "InteractivityAndCommand\InteractivityAndCommand.csproj", "{CC813370-7278-4B93-9B72-C5D6F3B473A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsageOfConverter", "UsageOfConverter\UsageOfConverter.csproj", "{74860509-182D-4E81-9C13-0AB77402D6F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{CC813370-7278-4B93-9B72-C5D6F3B473A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC813370-7278-4B93-9B72-C5D6F3B473A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC813370-7278-4B93-9B72-C5D6F3B473A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74860509-182D-4E81-9C13-0AB77402D6F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74860509-182D-4E81-9C13-0AB77402D6F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74860509-182D-4E81-9C13-0AB77402D6F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74860509-182D-4E81-9C13-0AB77402D6F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
