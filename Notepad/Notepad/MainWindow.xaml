@@ -27,6 +27,28 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Key="DetailsTemplate">
+            <Grid Margin="40,12">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBox x:Name="textBoxTitle" Grid.Row="0" Text="{Binding Title,Mode=TwoWay}" 
+                         Style="{StaticResource TitleTextBoxStyle}" BorderThickness="0"
+                         HorizontalAlignment="Left" MinWidth="320"></TextBox>
+                <Border Grid.Row="1" Width="{Binding ActualWidth,ElementName=textBoxTitle}" 
+                        BorderThickness="0,0.5" BorderBrush="Gray" Margin="0,4"
+                        HorizontalAlignment="Left"></Border>
+                <TextBlock Grid.Row="2" Text="{Binding LastModifyDate, StringFormat=yyyy MMM d HH:MM}" Margin="0,4
+                           " Style="{StaticResource CaptionTextBlockStyle}"></TextBlock>
+                <TextBox Grid.Row="3" BorderThickness="0" Text="{Binding Content,Mode=TwoWay}" 
+                     Style="{StaticResource BodyTextBoxStyle}" Margin="0,20"
+                     AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+            </Grid>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -34,15 +56,17 @@
             <ColumnDefinition x:Name="columnRight" Width="6*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <ListView Grid.Column="0" x:Name="listView" ItemsSource="{Binding Pages}" 
+        <ListView Grid.Column="0" x:Name="listView" ItemsSource="{Binding Pages}" ScrollViewer.VerticalScrollBarVisibility="Hidden"
               ItemTemplate="{StaticResource NotepadPageTemplate}"></ListView>
 
-        <StackPanel Grid.Column="1" DataContext="{Binding SelectedItem,ElementName=listView}" Margin="4">
+        <!--<StackPanel Grid.Column="1" DataContext="{Binding SelectedItem,ElementName=listView}" Margin="4">
             <TextBox BorderThickness="0,0,0,1" Text="{Binding Title,Mode=TwoWay}" Style="{StaticResource TitleTextBoxStyle}"></TextBox>
             <TextBlock Text="{Binding LastModifyDate,Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}"></TextBlock>
             <TextBox BorderThickness="0" Text="{Binding Content,Mode=TwoWay}" 
                      Style="{StaticResource BodyTextBoxStyle}"
                      AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
-        </StackPanel>
+        </StackPanel>-->
+        <ContentControl Grid.Column="1" Content="{Binding SelectedItem,ElementName=listView}"
+                        ContentTemplate="{StaticResource DetailsTemplate}"></ContentControl>
     </Grid>
 </Window>
