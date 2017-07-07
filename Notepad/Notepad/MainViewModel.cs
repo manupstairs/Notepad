@@ -4,15 +4,31 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Notepad
 {
     public class MainViewModel
     {
+        public ICommand AddCommand { get; set; }
+
+        public ICommand SelectCommand { get; set; }
+
+        private bool isMutlipSelect;
+
+        public bool IsMutlipSelect
+        {
+            get { return isMutlipSelect; }
+            set { isMutlipSelect = value; }
+        }
+
+
         public ObservableCollection<NotepadPage> Pages { get; set; } = new ObservableCollection<NotepadPage>();
 
         public MainViewModel()
         {
+            AddCommand = new EasyCommand(Add);
+
             for (int i = 0; i < 10; i++)
             {
                 var page = new NotepadPage
@@ -23,6 +39,16 @@ namespace Notepad
                 };
                 Pages.Add(page);
             }
+        }
+
+        private void Add()
+        {
+            var page = new NotepadPage
+            {
+                Title = "New Page",
+                LastModifyDate = DateTime.Now
+            };
+            Pages.Add(page);
         }
     }
 }
