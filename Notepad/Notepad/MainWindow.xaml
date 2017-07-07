@@ -40,7 +40,7 @@
                          Style="{StaticResource TitleTextBoxStyle}" BorderThickness="0"
                          HorizontalAlignment="Left" MinWidth="320"></TextBox>
                 <Border Grid.Row="1" Width="{Binding ActualWidth,ElementName=textBoxTitle}" 
-                        BorderThickness="0,0.5" BorderBrush="Gray" Margin="0,4"
+                        BorderThickness="0,0.5" BorderBrush="LightGray" Margin="0,4"
                         HorizontalAlignment="Left"></Border>
                 <TextBlock Grid.Row="2" Text="{Binding LastModifyDate, StringFormat=yyyy MMM d HH:MM}" Margin="0,4
                            " Style="{StaticResource CaptionTextBlockStyle}"></TextBlock>
@@ -58,7 +58,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <!--<SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>-->
+        <SolidColorBrush x:Key="Button.Static.Background" Color="White"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
         <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
@@ -76,6 +77,9 @@
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Padding" Value="1"/>
+            <Setter Property="Height" Value="40"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Padding" Value="4"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -118,10 +122,29 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Style="{StaticResource ToolBarButtonStyle}" >Add</Button>
-                <Button Grid.Column="2" Style="{StaticResource ToolBarButtonStyle}">Select</Button>
+                <Button Grid.Column="0" Style="{StaticResource ToolBarButtonStyle}">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Assets/add.png" ></Image>
+                                <TextBlock VerticalAlignment="Center">Add</TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
+                <Button Grid.Column="2" Style="{StaticResource ToolBarButtonStyle}">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Assets/select.png" ></Image>
+                                <TextBlock VerticalAlignment="Center">Select</TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
             </Grid>
-            <ListView Grid.Column="0" x:Name="listView" ItemsSource="{Binding Pages}" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            <ListView Grid.Column="0" x:Name="listView" ItemsSource="{Binding Pages}"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderThickness="0"
               ItemTemplate="{StaticResource NotepadPageTemplate}"></ListView>
         </StackPanel>
 
@@ -133,7 +156,9 @@
                      Style="{StaticResource BodyTextBoxStyle}"
                      AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
         </StackPanel>-->
-        <ContentControl Grid.Column="1" Content="{Binding SelectedItem,ElementName=listView}"
+        <Border Grid.Column="1" BorderThickness="0.5,0,0,0" BorderBrush="LightGray">
+            <ContentControl  Content="{Binding SelectedItem,ElementName=listView}"
                         ContentTemplate="{StaticResource DetailsTemplate}"></ContentControl>
+        </Border>
     </Grid>
 </Window>
