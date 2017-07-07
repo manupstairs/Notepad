@@ -40,6 +40,7 @@
                 <Setter Property="FontSize" Value="15"/>
             </Style>
             <local:SelectionModeToVisibility x:Key="selectionModeToVisibility"></local:SelectionModeToVisibility>
+            <local:BoolToSelectionMode x:Key="boolToSelectionMode"></local:BoolToSelectionMode>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

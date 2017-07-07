@@ -1,25 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Notepad
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
         public ICommand AddCommand { get; set; }
 
         public ICommand SelectCommand { get; set; }
 
-        private bool isMutlipSelect;
+        private bool isMultipleSelect;
 
-        public bool IsMutlipSelect
+        public bool IsMultipleSelect
         {
-            get { return isMutlipSelect; }
-            set { isMutlipSelect = value; }
+            get { return isMultipleSelect; }
+            set
+            {
+                isMultipleSelect = value;
+                this.OnPropertyChanged();
+            }
         }
 
 
@@ -28,6 +34,7 @@ namespace Notepad
         public MainViewModel()
         {
             AddCommand = new EasyCommand(Add);
+            SelectCommand = new EasyCommand(Select);
 
             for (int i = 0; i < 10; i++)
             {
@@ -41,6 +48,11 @@ namespace Notepad
             }
         }
 
+        private void Select()
+        {
+            IsMultipleSelect = !IsMultipleSelect;
+        }
+
         private void Add()
         {
             var page = new NotepadPage
@@ -49,6 +61,13 @@ namespace Notepad
                 LastModifyDate = DateTime.Now
             };
             Pages.Add(page);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
 }
