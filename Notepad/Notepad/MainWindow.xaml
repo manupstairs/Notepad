@@ -20,7 +20,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}"
-                          Visibility="{Binding SelectionMode ,ElementName=listView,Converter={StaticResource selectionModeToVisibility}}"></CheckBox>
+                          Visibility="{Binding DataContext.IsMultipleSelect ,ElementName=rootLayout,Converter={StaticResource boolToVisibility}}"></CheckBox>
                 <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource TitleTextBlockStyle}" Text="{Binding Title,Mode=OneWay}" MaxHeight="160" TextTrimming="CharacterEllipsis"></TextBlock>
                 <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource BodyTextBlockStyle}" Text="{Binding Content,Mode=OneWay}" TextTrimming="CharacterEllipsis" Margin="0,4"></TextBlock>
                 <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource CaptionTextBlockStyle}" Text="{Binding LastModifyDate,Mode=OneWay}"></TextBlock>
@@ -150,7 +150,7 @@
                     </Button.ContentTemplate>
                 </Button>
             </Grid>
-            <ListView Grid.Row="1" x:Name="listView" ItemsSource="{Binding Pages}" SelectionMode="{Binding IsMultipleSelect,Converter={StaticResource boolToSelectionMode}}"
+            <ListView Grid.Row="1" x:Name="listView" ItemsSource="{Binding Pages}" 
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderThickness="0"
               ItemTemplate="{StaticResource NotepadPageTemplate}"></ListView>
         </Grid>

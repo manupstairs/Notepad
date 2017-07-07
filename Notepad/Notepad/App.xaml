@@ -41,6 +41,7 @@
             </Style>
             <local:SelectionModeToVisibility x:Key="selectionModeToVisibility"></local:SelectionModeToVisibility>
             <local:BoolToSelectionMode x:Key="boolToSelectionMode"></local:BoolToSelectionMode>
+            <local:BoolToVisibility x:Key="boolToVisibility"></local:BoolToVisibility>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
