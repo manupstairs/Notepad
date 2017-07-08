@@ -126,6 +126,7 @@
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
@@ -139,7 +140,18 @@
                         </DataTemplate>
                     </Button.ContentTemplate>
                 </Button>
-                <Button Grid.Column="2" Style="{StaticResource ToolBarButtonStyle}"  Command="{Binding SelectCommand,Mode=OneWay}">
+                <Button Grid.Column="1" Style="{StaticResource ToolBarButtonStyle}" Command="{Binding DeleteCommand,Mode=OneWay}"
+                        Visibility="{Binding IsMultipleSelect,Converter={StaticResource boolToVisibility}}">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="Assets/delete.png" ></Image>
+                                <TextBlock VerticalAlignment="Center">Delete</TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
+                <Button Grid.Column="3" Style="{StaticResource ToolBarButtonStyle}"  Command="{Binding SelectCommand,Mode=OneWay}">
                     <Button.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -154,15 +166,7 @@
                       ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderThickness="0"
               ItemTemplate="{StaticResource NotepadPageTemplate}"></ListView>
         </Grid>
-
-
-        <!--<StackPanel Grid.Column="1" DataContext="{Binding SelectedItem,ElementName=listView}" Margin="4">
-            <TextBox BorderThickness="0,0,0,1" Text="{Binding Title,Mode=TwoWay}" Style="{StaticResource TitleTextBoxStyle}"></TextBox>
-            <TextBlock Text="{Binding LastModifyDate,Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}"></TextBlock>
-            <TextBox BorderThickness="0" Text="{Binding Content,Mode=TwoWay}" 
-                     Style="{StaticResource BodyTextBoxStyle}"
-                     AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
-        </StackPanel>-->
+        
         <Border Grid.Column="1" BorderThickness="0.5,0,0,0" BorderBrush="LightGray">
             <ContentControl  Content="{Binding SelectedItem,ElementName=listView}"
                         ContentTemplate="{StaticResource DetailsTemplate}"></ContentControl>
