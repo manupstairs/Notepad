@@ -42,6 +42,7 @@
             <local:SelectionModeToVisibility x:Key="selectionModeToVisibility"></local:SelectionModeToVisibility>
             <local:BoolToSelectionMode x:Key="boolToSelectionMode"></local:BoolToSelectionMode>
             <local:BoolToVisibility x:Key="boolToVisibility"></local:BoolToVisibility>
+            <local:VisibilityReverse x:Key="visibilityReverse"></local:VisibilityReverse>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

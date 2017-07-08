@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\VisibilityReverse.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
     <Compile Include="Converters\SelectionModeToVisibility.cs" />
     <Page Include="MainWindow.xaml">
@@ -104,6 +105,9 @@
   <ItemGroup>
     <Resource Include="Assets\add.png" />
     <Resource Include="Assets\select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\cancel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
