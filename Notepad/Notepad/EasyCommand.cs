@@ -7,11 +7,11 @@ using System.Windows.Input;
 
 namespace Notepad
 {
-    public class EasyCommand : ICommand
+    public class EasyCommand<T> : ICommand where T : class
     {
-        private Action EasyActoin { get; set; }
+        private Action<T> EasyActoin { get; set; }
 
-        public EasyCommand(Action easyActoin)
+        public EasyCommand(Action<T> easyActoin)
         {
             this.EasyActoin = easyActoin;
         }
@@ -25,7 +25,7 @@ namespace Notepad
 
         public void Execute(object parameter)
         {
-            this.EasyActoin();
+            this.EasyActoin(parameter as T);
         }
     }
 }

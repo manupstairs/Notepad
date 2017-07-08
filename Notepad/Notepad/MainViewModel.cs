@@ -16,6 +16,8 @@ namespace Notepad
 
         public ICommand DeleteCommand { get; set; }
 
+        public ICommand SingleDeleteCommand { get; set; }
+
         public ICommand SelectCommand { get; set; }
 
         private bool isMultipleSelect;
@@ -30,13 +32,27 @@ namespace Notepad
             }
         }
 
+        private NotepadPage selectedItem;
+
+        public NotepadPage SelectedItem
+        {
+            get { return selectedItem; }
+            set
+            {
+                selectedItem = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+
         public ObservableCollection<NotepadPage> Pages { get; set; } = new ObservableCollection<NotepadPage>();
 
         public MainViewModel()
         {
-            AddCommand = new EasyCommand(Add);
-            DeleteCommand = new EasyCommand(Delete);
-            SelectCommand = new EasyCommand(Select);
+            AddCommand = new EasyCommand<object>(Add);
+            DeleteCommand = new EasyCommand<object>(Delete);
+            SelectCommand = new EasyCommand<object>(Select);
+            SingleDeleteCommand = new EasyCommand<object>(SingleDelete);
 
             for (int i = 0; i < 10; i++)
             {
@@ -50,7 +66,15 @@ namespace Notepad
             }
         }
 
-        private void Delete()
+        private void SingleDelete(object obj)
+        {
+            if (SelectedItem != null)
+            { 
+                Pages.Remove(SelectedItem);
+            }
+        }
+
+        private void Delete(object obj)
         {
             var removeItems = Pages.Where(_ => _.IsSelected).ToList();
             foreach (var item in removeItems)
@@ -59,12 +83,12 @@ namespace Notepad
             }
         }
 
-        private void Select()
+        private void Select(object obj)
         {
             IsMultipleSelect = !IsMultipleSelect;
         }
 
-        private void Add()
+        private void Add(object obj)
         {
             var page = new NotepadPage
             {
