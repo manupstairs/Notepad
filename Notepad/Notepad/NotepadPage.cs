@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Notepad
 {
@@ -56,6 +57,30 @@ namespace Notepad
                 isSelected = value;
                 this.OnPropertyChanged();
             }
+        }
+
+        private bool isFavorite;
+
+        public bool IsFavorite
+        {
+            get { return isFavorite; }
+            set
+            {
+                isFavorite = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        public ICommand FavoriteCommand { get; set; }
+
+        public NotepadPage()
+        {
+            FavoriteCommand = new EasyCommand<NotepadPage>(Favorite);
+        }
+
+        private void Favorite(NotepadPage page)
+        {
+            IsFavorite = !IsFavorite;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notepad"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d" 
         Title="MainWindow">
     <Window.Resources>
@@ -12,6 +13,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -21,10 +23,19 @@
                 </Grid.RowDefinitions>
                 <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}"
                           Visibility="{Binding DataContext.IsMultipleSelect,ElementName=rootLayout,Converter={StaticResource boolToVisibility}}"></CheckBox>
-                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource TitleTextBlockStyle}" Text="{Binding Title,Mode=OneWay}" MaxHeight="160" TextTrimming="CharacterEllipsis"></TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource BodyTextBlockStyle}" Text="{Binding Content,Mode=OneWay}" TextTrimming="CharacterEllipsis" Margin="0,4"></TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource CaptionTextBlockStyle}" Text="{Binding LastModifyDate,Mode=OneWay}"></TextBlock>
-                <Image Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Source="{Binding CoverImageUri,Mode=OneTime}" Stretch="UniformToFill"
+                <TextBlock Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource TitleTextBlockStyle}" Text="{Binding Title,Mode=OneWay}" MaxHeight="160" TextTrimming="CharacterEllipsis"></TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource BodyTextBlockStyle}" Text="{Binding Content,Mode=OneWay}" TextTrimming="CharacterEllipsis" Margin="0,4"></TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource CaptionTextBlockStyle}"
+                           Text="{Binding LastModifyDate,Mode=OneWay}" VerticalAlignment="Center"></TextBlock>
+                <Image Grid.Column="2" Grid.Row="2" Source="{Binding IsFavorite,Converter={StaticResource boolToString}}"
+                       Width="24" Height="24" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding FavoriteCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <Image Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" Source="{Binding CoverImageUri,Mode=OneTime}" Stretch="UniformToFill"
                            Margin="4,0,0,0"></Image>
             </Grid>
         </DataTemplate>

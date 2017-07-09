@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -54,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BoolToString.cs" />
     <Compile Include="Converters\VisibilityReverse.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
     <Compile Include="Converters\SelectionModeToVisibility.cs" />
@@ -108,6 +110,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\emptyStar.png" />
+    <Resource Include="Assets\yellowStar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

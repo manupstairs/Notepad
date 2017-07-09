@@ -44,7 +44,6 @@ namespace Notepad
             }
         }
 
-
         public ObservableCollection<NotepadPage> Pages { get; set; } = new ObservableCollection<NotepadPage>();
 
         public MainViewModel()
