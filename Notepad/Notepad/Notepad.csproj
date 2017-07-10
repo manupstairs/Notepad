@@ -60,6 +60,7 @@
     <Compile Include="Converters\VisibilityReverse.cs" />
     <Compile Include="Converters\BoolToVisibility.cs" />
     <Compile Include="Converters\SelectionModeToVisibility.cs" />
+    <Compile Include="IScrollToItemEvent.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

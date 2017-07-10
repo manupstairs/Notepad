@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace Notepad
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : INotifyPropertyChanged, IScrollToItemEvent
     {
         public ICommand AddCommand { get; set; }
 
@@ -96,9 +96,11 @@ namespace Notepad
                 LastModifyDate = DateTime.Now
             };
             Pages.Add(page);
+            this.ScrollToItem?.Invoke(this, page);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler<NotepadPage> ScrollToItem;
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {

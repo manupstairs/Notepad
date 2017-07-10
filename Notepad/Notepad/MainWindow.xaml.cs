@@ -20,6 +20,8 @@ namespace Notepad
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainViewModel MainViewModel { get; set; }
+
         private GridLength zeroGridLength = new GridLength(0);
         private GridLength oneStarGridLength = new GridLength(1, GridUnitType.Star);
         private GridLength fourStarGridLength = new GridLength(4, GridUnitType.Star);
@@ -28,8 +30,16 @@ namespace Notepad
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainViewModel();
+            MainViewModel = new MainViewModel();
+            MainViewModel.ScrollToItem += MainViewModel_ScrollToItem;
+            this.DataContext = MainViewModel;
             this.SizeChanged += MainWindow_SizeChanged;
+            
+        }
+
+        private void MainViewModel_ScrollToItem(object sender, NotepadPage e)
+        {
+            this.listView.ScrollIntoView(e);
         }
 
         private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
