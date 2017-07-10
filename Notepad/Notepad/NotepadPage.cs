@@ -71,6 +71,18 @@ namespace Notepad
             }
         }
 
+        private string imagePath;
+
+        public string ImagePath
+        {
+            get { return imagePath; }
+            set
+            {
+                imagePath = value;
+                this.OnPropertyChanged();
+            }
+        }
+
         public ICommand FavoriteCommand { get; set; }
 
         public NotepadPage()

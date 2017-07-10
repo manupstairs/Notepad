@@ -9,7 +9,7 @@
         Title="MainWindow">
     <Window.Resources>
         <DataTemplate x:Key="NotepadPageTemplate">
-            <Grid Height="100" Margin="0,4" Width="400">
+            <Grid Height="100" Margin="0,4" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="5*"></ColumnDefinition>
@@ -35,7 +35,7 @@
                         </local:HandlingEventTrigger>
                     </i:Interaction.Triggers>
                 </Image>
-                <Image Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" Source="{Binding CoverImageUri,Mode=OneTime}" Stretch="UniformToFill"
+                <Image Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" Source="{Binding ImagePath,Mode=OneTime}" Stretch="UniformToFill"
                            Margin="4,0,0,0"></Image>
             </Grid>
         </DataTemplate>
@@ -185,7 +185,7 @@
                 </Button>
             </Grid>
             <ListView Grid.Row="1" x:Name="listView" ItemsSource="{Binding Pages}" SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
-                      ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderThickness="0"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
               ItemTemplate="{StaticResource NotepadPageTemplate}">
                 <ListView.ContextMenu>
                     <ContextMenu>
