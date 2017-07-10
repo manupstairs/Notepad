@@ -9,35 +9,39 @@
         Title="MainWindow">
     <Window.Resources>
         <DataTemplate x:Key="NotepadPageTemplate">
-            <Grid Height="100" Margin="0,4" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="5*"></ColumnDefinition>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}"
+            <Border Height="120" Padding="4" BorderThickness="0,1,0,0" BorderBrush="LightGray">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <CheckBox Grid.Row="1" Grid.Column="0" IsChecked="{Binding IsSelected,Mode=TwoWay}" VerticalAlignment="Center" Margin="4,0"
                           Visibility="{Binding DataContext.IsMultipleSelect,ElementName=rootLayout,Converter={StaticResource boolToVisibility}}"></CheckBox>
-                <TextBlock Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource TitleTextBlockStyle}" Text="{Binding Title,Mode=OneWay}" MaxHeight="160" TextTrimming="CharacterEllipsis"></TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource BodyTextBlockStyle}" Text="{Binding Content,Mode=OneWay}" TextTrimming="CharacterEllipsis" Margin="0,4"></TextBlock>
-                <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource CaptionTextBlockStyle}"
+                    <TextBlock Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource TitleTextBlockStyle}" 
+                           Text="{Binding Title,Mode=OneWay}" MaxHeight="160" TextTrimming="CharacterEllipsis"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource BodyTextBlockStyle}"
+                           Text="{Binding Content,Mode=OneWay}" TextTrimming="CharacterEllipsis" Margin="0,4"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource CaptionTextBlockStyle}"
                            Text="{Binding LastModifyDate,Mode=OneWay}" VerticalAlignment="Center"></TextBlock>
-                <Image Grid.Column="2" Grid.Row="2" Source="{Binding IsFavorite,Converter={StaticResource boolToString}}"
+                    <Image Grid.Column="2" Grid.Row="2" Source="{Binding IsFavorite,Converter={StaticResource boolToString}}"
                        Width="24" Height="24" >
-                    <i:Interaction.Triggers>
-                        <local:HandlingEventTrigger EventName="MouseLeftButtonDown">
-                            <i:InvokeCommandAction Command="{Binding FavoriteCommand}"/>
-                        </local:HandlingEventTrigger>
-                    </i:Interaction.Triggers>
-                </Image>
-                <Image Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" Source="{Binding ImagePath,Mode=OneTime}" Stretch="UniformToFill"
+                        <i:Interaction.Triggers>
+                            <local:HandlingEventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding FavoriteCommand}"/>
+                            </local:HandlingEventTrigger>
+                        </i:Interaction.Triggers>
+                    </Image>
+                    <Image Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" Source="{Binding ImagePath,Mode=OneTime}" Stretch="UniformToFill"
                            Margin="4,0,0,0"></Image>
-            </Grid>
+                </Grid>
+            </Border>
         </DataTemplate>
 
         <DataTemplate x:Key="DetailsTemplate">
@@ -194,7 +198,7 @@
                 </ListView.ContextMenu>
             </ListView>
         </Grid>
-        
+
         <Border Grid.Column="1" BorderThickness="0.5,0,0,0" BorderBrush="LightGray">
             <ContentControl  Content="{Binding SelectedItem,ElementName=listView}"
                         ContentTemplate="{StaticResource DetailsTemplate}"></ContentControl>
