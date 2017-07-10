@@ -96,6 +96,7 @@ namespace Notepad
                 LastModifyDate = DateTime.Now
             };
             Pages.Add(page);
+            SelectedItem = page;
             this.ScrollToItem?.Invoke(this, page);
         }
 
