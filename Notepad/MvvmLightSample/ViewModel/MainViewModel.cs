@@ -26,6 +26,27 @@ namespace MvvmLightSample.ViewModel
             set { Set(ref title, value); }
         }
 
+        private string text;
+
+        public string Text
+        {
+            get { return text; }
+            set
+            {
+                text = value;
+                RaisePropertyChanged("Text");
+                RaisePropertyChanged("TitleAndText");
+            }
+        }
+
+        public string TitleAndText
+        {
+            get
+            {
+                return title + text;
+            }
+        }
+
         public ICommand ChangeTitleCommand { get; set; }
 
         /// <summary>
